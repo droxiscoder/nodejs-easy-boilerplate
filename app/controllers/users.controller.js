@@ -9,14 +9,9 @@ exports.create = async (req, res) => {
 
     try {
 
-        let response = await Users.create(req.body, {
-            logging: (sql, queryObject) => {
-                console.log("query: " + JSON.stringify(sql));
-                console.log("fields: " + JSON.stringify(queryObject.bind));
-            }
-        })
+        let response = await Users.create(req.body);
 
-        res.send(response);
+        res.status(200).send(response);
 
     } catch (err) {
         console.log(err);
@@ -80,10 +75,6 @@ exports.update = async (req, res) => {
         await Users.update(user, {
             where: {
                 user_id: id
-            },
-            logging: (sql, queryObject) => {
-                console.log("query: " + JSON.stringify(sql));
-                console.log("fields: " + JSON.stringify(queryObject.bind));
             }
         })
 
