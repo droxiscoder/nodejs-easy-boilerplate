@@ -1,1 +1,1 @@
-Simple Back End in NodeJS boilerplate
+Simple Back End in NodeJS boilerplate using joi, sequelize, express, jest
